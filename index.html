@@ -844,779 +844,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar,
   opacity: 0.7;
   filter: grayscale(0.8) brightness(0.9);
 }
-
-#hand-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1px 0;
-  margin-bottom: -1px;
-  gap: 0;
-  min-height: 0;
-  position: relative;
-  line-height: 1;
-  transform: translateY(2px);
-}
-#hand-nav .nav-history { display: flex; align-items: center; gap: var(--nav-gap); flex-shrink: 0; }
-#hand-nav button {
-  background: transparent;
-  border: none;
-  color: var(--text);
-  font-size: var(--nav-icon-size);
-  font-weight: 800;
-  padding: 0;
-  line-height: 1;
-  width: var(--nav-btn);
-  height: var(--nav-btn);
-  min-width: var(--nav-btn);
-  min-height: var(--nav-btn);
-  border-radius: 6px;
-  position: relative;
-  top: -2px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  pointer-events: auto;
-  cursor: pointer;
-}
-#hand-nav button:active:not(:disabled) { background: rgba(255,255,255,.06); }
-#hand-nav button:disabled { opacity: .28; cursor: default !important; }
-
-#hand-nav .nav-counter {
-  color: var(--gold);
-  font-weight: 800;
-  text-align: center;
-  font-size: var(--nav-counter-size);
-  letter-spacing: .3px;
-  white-space: nowrap;
-  position: relative;
-  top: -2px;
-  padding: 0;
-  width: var(--nav-counter-w);
-  display: inline-block;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  flex-shrink: 0;
-  line-height: 1;
-  transform: translateY(calc(1px - var(--nav-counter-lift)));
-}
-#hand-nav .nav-counter .total { color: var(--muted); }
-
-#hn-resume { color: var(--ok); }
-#hn-resume:disabled { color: var(--text); }
-#hn-replay { color: var(--gold); }
-#hn-restart { color: var(--gold); }
-
-#hn-restart.nav-restart-inactive {
-  opacity: .28;
-  cursor: default !important;
-  pointer-events: none !important;
-}
-#hn-restart.nav-restart-active {
-  opacity: 1;
-  cursor: pointer !important;
-  pointer-events: auto !important;
-}
-#hn-restart.nav-restart-pending-vip { color: var(--vip-color) !important; }
-#hn-restart.nav-restart-pending-pro { color: var(--pro-color) !important; }
-
-#hand-nav .nav-svg {
-  display: block;
-  width: var(--nav-icon-size);
-  height: var(--nav-icon-size);
-  fill: currentColor;
-  pointer-events: none;
-  flex-shrink: 0;
-}
-#hn-prev .nav-svg,
-#hn-next .nav-svg {
-  stroke: currentColor;
-  stroke-width: 1.2px;
-  stroke-linejoin: round;
-}
-@media (max-width: 767px) {
-  #hand-nav .nav-svg {
-    width: var(--nav-icon-size) !important;
-    height: var(--nav-icon-size) !important;
-  }
-  #hn-restart .nav-svg {
-    width: var(--nav-icon-size) !important;
-    height: var(--nav-icon-size) !important;
-  }
-}
-
-#hero-slider-row {
-  display: flex;
-  align-items: center;
-  gap: clamp(6px, 1vmin, 10px);
-  width: 100%;
-  padding: 3px 0;
-  transform: translateY(calc(-2px - 1px));
-  touch-action: none;
-}
-
-#raise-slider-track {
-  position: relative;
-  flex: 1 1 auto;
-  min-width: 0;
-  height: 18px;
-  touch-action: none;
-  pointer-events: auto;
-  user-select: none;
-  -webkit-user-select: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-#raise-slider-segments {
-  position: relative;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  overflow: visible;
-}
-#raise-slider-call-seg {
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 1px;
-  background: #4a4540;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border: 1px solid #2a2520;
-  box-sizing: border-box;
-  pointer-events: none;
-}
-#raise-slider-raise-seg {
-  position: absolute;
-  left: 1px; right: 0; top: 0; bottom: 0;
-  background: #4a4540;
-  border: 1px solid #2a2520;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-left: none;
-  box-sizing: border-box;
-  pointer-events: none;
-}
-#raise-slider-thumb {
-  position: absolute;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%,
-    #fff9dc 0%,
-    #fdefb8 15%,
-    #f9e492 30%,
-    #f3d66c 45%,
-    #ecc74a 60%,
-    #d6aa30 75%,
-    #c3981f 88%,
-    #b8860b 100%);
-  border: 1px solid #8a6508;
-  box-shadow: 0 2px 4px rgba(0,0,0,.7);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: transform .08s ease, filter .08s ease;
-  z-index: 2;
-}
-#raise-slider-thumb.pressed {
-  transform: translate(-50%, -50%) scale(0.85);
-  filter: brightness(1.35);
-}
-
-#raise-amount-mini {
-  color: var(--gold);
-  font-size: var(--small-text);
-  font-weight: 800;
-  white-space: nowrap;
-  text-shadow: 0 1px 3px rgba(0,0,0,.95);
-  width: var(--raise-amount-mini-w);
-  min-width: var(--raise-amount-mini-w);
-  max-width: var(--raise-amount-mini-w);
-  text-align: center;
-  background: rgba(0,0,0,.35);
-  border: 1px solid #3a3530;
-  border-radius: 6px;
-  padding: 2px clamp(4px, 0.6vmin, 6px);
-  flex: 0 0 auto;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
-}
-#raise-amount-mini.allin-text { color: #e63946; font-weight: 900; }
-
-#hero-buttons { display: flex; gap: clamp(4px, 0.7vmin, 6px); width: 100%; }
-#hero-buttons button {
-  flex: 1;
-  padding: clamp(4px, 0.8vmin, 6px) clamp(4px, 0.8vmin, 7px);
-  border: none;
-  border-radius: 8px;
-  font-weight: 800;
-  font-size: clamp(10px, 1.4vmin, 12px);
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: .3px;
-  box-shadow: 0 3px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1);
-  touch-action: manipulation;
-  min-height: 36px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.05;
-  transition: transform .08s ease, filter .08s ease;
-  cursor: pointer;
-}
-#hero-buttons button:active:not(:disabled) {
-  transform: scale(0.96);
-  filter: brightness(1.35);
-  box-shadow: 0 0 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1);
-}
-#hero-buttons button:disabled {
-  opacity: .28;
-  box-shadow: none;
-  filter: grayscale(0.5) brightness(0.55);
-  cursor: default !important;
-}
-
-#btn-fold  { background: linear-gradient(180deg,
-  #5e5e5e 0%,
-  #5a5a5a 12%,
-  #545454 24%,
-  #4e4e4e 36%,
-  #484848 48%,
-  #424242 60%,
-  #3d3d3d 72%,
-  #3a3a3a 84%,
-  #363636 100%); }
-#btn-check { background: linear-gradient(180deg,
-  #2f5340 0%,
-  #2c4f3d 12%,
-  #294b39 24%,
-  #264735 36%,
-  #234332 48%,
-  #1f3f2e 60%,
-  #1c3a2a 72%,
-  #193526 84%,
-  #14261c 100%); }
-#btn-call  { background: linear-gradient(180deg,
-  #4a87dc 0%,
-  #4682d5 12%,
-  #427dcf 24%,
-  #3d78c9 36%,
-  #3873c3 48%,
-  #336ebd 60%,
-  #2d68b5 72%,
-  #2761ad 84%,
-  #1e4a8a 100%); }
-#btn-call.mode-raise { background: linear-gradient(180deg,
-  #d05547 0%,
-  #cc5042 12%,
-  #c64a3c 24%,
-  #c04436 36%,
-  #ba3e30 48%,
-  #b4382b 60%,
-  #ae3226 72%,
-  #a72c21 84%,
-  #8a2a1f 100%); }
-#btn-call.mode-bet   { background: linear-gradient(180deg,
-  #d05547 0%,
-  #cc5042 12%,
-  #c64a3c 24%,
-  #c04436 36%,
-  #ba3e30 48%,
-  #b4382b 60%,
-  #ae3226 72%,
-  #a72c21 84%,
-  #8a2a1f 100%); }
-
-#btn-call .call-label { font-size: inherit; font-weight: 800; }
-#btn-call .call-amount { font-size: clamp(9px, 1.2vmin, 11px); font-weight: 700; opacity: 0.95; margin-top: 1px; }
-#btn-call .call-amount:empty { display: none; }
-
-#quick-percent-list {
-  position: absolute;
-  right: calc(var(--dash-inset) + var(--edge));
-  bottom: calc(var(--dash-inset) + var(--edge) - 1px);
-  width: var(--pct-block-w);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(3px, 0.5vmin, 5px);
-  z-index: 45;
-  transition: opacity .2s ease;
-}
-#quick-percent-list.inactive { opacity: 0.55; }
-#quick-percent-list.inactive button,
-#quick-percent-list.inactive button * { pointer-events: none !important; }
-#quick-percent-list.inactive button .label { color: #6a5a1a; }
-#quick-percent-list.inactive button .value { color: #4a4a4a; }
-#quick-percent-list.inactive button .value.allin-text { color: #7a2028; }
-#quick-percent-list button {
-  background: rgba(20,18,16,.92);
-  border: 1px solid #3a3530;
-  color: var(--text);
-  padding: clamp(5px, 0.8vmin, 7px) clamp(8px, 1.1vmin, 10px);
-  border-radius: 7px;
-  font-size: clamp(10px, 1.3vmin, 12px);
-  font-weight: 800;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: clamp(4px, 0.7vmin, 8px);
-  white-space: nowrap;
-  touch-action: none;
-  min-height: calc(32px + 2px);
-  width: 100%;
-  transition: transform .08s ease, filter .08s ease;
-  box-shadow: none;
-  cursor: pointer;
-}
-#quick-percent-list button:active:not(:disabled) {
-  transform: scale(0.96);
-  filter: brightness(1.65);
-}
-#quick-percent-list button:disabled { opacity: 0.55; cursor: default !important; }
-#quick-percent-list button .label { color: var(--gold); font-weight: 800; }
-#quick-percent-list button .value { color: var(--muted); font-weight: 600; font-size: clamp(9px, 1.2vmin, 11px); }
-#quick-percent-list button .value.allin-text { color: #e63946; font-weight: 700; }
-
-#final-overlay {
-  position: absolute; inset: 0;
-  z-index: 400;
-  display: none;
-  overflow: hidden;
-  isolation: isolate;
-}
-#final-overlay.visible { display: block; }
-#final-dim {
-  position: absolute; inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 0;
-  pointer-events: none;
-  transform: translateZ(0);
-  contain: strict;
-}
-#final-fx {
-  position: absolute; inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  transform: translateZ(0);
-  contain: strict;
-}
-.firework { position: absolute; pointer-events: none; width: 0; height: 0; }
-.firework .spark {
-  position: absolute; left: 0; top: 0;
-  width: 6px; height: 6px; border-radius: 50%;
-  pointer-events: none; opacity: 0;
-  animation: sparkFly 1.6s ease-out forwards;
-  will-change: transform, opacity;
-}
-@keyframes sparkFly {
-  0% { opacity: 1; transform: translate(0, 0) scale(1); }
-  70% { opacity: 1; }
-  100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.2); }
-}
-  
-#info-blinds-row {
-  cursor: default !important;
-  pointer-events: none !important;
-}
-
-.seat.folded { opacity: 1 !important; }
-.seat.folded .seat-cards,
-.seat.folded .pos-row,
-.seat.folded .stack-wrap,
-.seat.folded .action-badge,
-.seat.folded .bet-chips,
-.seat.folded .winner-badge {
-  opacity: .35 !important;
-}
-.seat.folded .delta-text {
-  opacity: .5 !important;
-}
-.seat.folded .dealer-chip {
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-#table-info {
-  transform: translateY(2px);
-}
-
-@media (min-width: 768px) {
-  .seat .hero-timer-wrap,
-  .seat .hero-timer-zone {
-    transform: translate(12px, -50%) !important;
-  }
-  .seat .hero-timer-wrap .timer-num {
-    transform: translateY(-1px);
-  }
-  .seat.left .dealer-chip,
-  .seat.right .dealer-chip,
-  .seat.top .dealer-chip {
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 1px;
-    box-sizing: border-box;
-  }
-  .seat.left .dealer-chip {
-    right: calc(clamp(-26px, -3.4vmin, -22px) - 10px - 4px) !important;
-    top: calc(28px + 8px + 4px) !important;
-  }
-  .seat.right .dealer-chip,
-  .seat.top .dealer-chip {
-    left: calc(clamp(-26px, -3.4vmin, -22px) - 10px - 4px) !important;
-    top: calc(28px + 8px + 4px) !important;
-  }
-  .seat .bet-chips {
-    bottom: calc(clamp(-54px, -6.6vmin, -48px) - 4px) !important;
-  }
-  #hero-actions.inactive #hero-buttons button {
-    box-shadow: 0 3px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.1) !important;
-  }
-  #hero-buttons button {
-    min-height: calc(clamp(4px, 0.8vmin, 6px) * 2 + clamp(10px, 1.4vmin, 12px) * 1.05 * 2 + 2px) !important;
-  }
-  #btn-call .call-amount:empty {
-    display: block !important;
-  }
-  #btn-call .call-amount {
-    min-height: 1.05em;
-  }
-  #btn-call .call-label,
-  #btn-call .call-amount {
-    display: block;
-    line-height: calc(clamp(10px, 1.4vmin, 12px) * 1.05);
-    height: calc(clamp(10px, 1.4vmin, 12px) * 1.05);
-    min-height: calc(clamp(10px, 1.4vmin, 12px) * 1.05);
-    margin: 0;
-  }
-  #btn-call .call-label {
-    font-size: clamp(10px, 1.4vmin, 12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #btn-call .call-amount {
-    font-size: clamp(9px, 1.2vmin, 11px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #btn-call .call-amount:empty {
-    display: none !important;
-  }
-  #btn-call .call-amount:empty + .call-label,
-  #btn-call:has(.call-amount:empty) .call-label {
-    flex: 1 1 auto;
-  }
-  #quick-percent-list button {
-    min-height: calc(32px + 2px + 2px + 2px) !important;
-  }
-  #quick-percent-list button {
-    position: relative !important;
-    display: block !important;
-    padding: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    align-items: center !important;
-    justify-content: center !important;
-    isolation: isolate;
-    overflow: visible !important;
-    transition: none !important;
-  }
-  #quick-percent-list button::before {
-    content: "" !important;
-    position: absolute !important;
-    inset: 0 !important;
-    border-radius: 7px !important;
-    background: rgba(20,18,16,.92) !important;
-    border: 1px solid #3a3530 !important;
-    box-shadow: none !important;
-    z-index: 0 !important;
-    pointer-events: none !important;
-    transition: transform .08s ease, filter .08s ease !important;
-    transform-origin: center center !important;
-    transform: scale(1) !important;
-    box-sizing: border-box !important;
-  }
-  #quick-percent-list button .label,
-  #quick-percent-list button .value {
-    position: absolute !important;
-    top: 50% !important;
-    z-index: 1 !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    line-height: 1 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    align-self: auto !important;
-    transform: translateY(-50%) scale(1) !important;
-    transition: transform .08s ease, color .08s ease !important;
-    will-change: transform, color;
-  }
-  #quick-percent-list button .label {
-    left: clamp(8px, 1.1vmin, 10px) !important;
-    transform-origin: calc(100% + (100% + clamp(8px, 1.1vmin, 10px))) center !important;
-  }
-  #quick-percent-list button .value {
-    right: clamp(8px, 1.1vmin, 10px) !important;
-    transform-origin: calc(-1 * (100% + clamp(8px, 1.1vmin, 10px))) center !important;
-  }
-  #quick-percent-list button:active:not(:disabled) {
-    filter: none !important;
-    transform: none !important;
-  }
-  #quick-percent-list button:active:not(:disabled)::before {
-    transform: scale(0.985) !important;
-    filter: brightness(1.65) !important;
-  }
-  #quick-percent-list button:active:not(:disabled) .label,
-  #quick-percent-list button:active:not(:disabled) .value {
-    transform: translateY(-50%) scale(0.985) !important;
-  }
-  #quick-percent-list button:active:not(:disabled) .label {
-    color: #ffe07a !important;
-  }
-  #quick-percent-list button:active:not(:disabled) .value {
-    color: #c8c8c8 !important;
-  }
-  #quick-percent-list button:active:not(:disabled) .value.allin-text {
-    color: #ff7b85 !important;
-  }
-  #quick-percent-list.inactive button::before {
-    background: rgba(20,18,16,.92) !important;
-    border-color: #3a3530 !important;
-  }
-}
-
-#hero-actions.inactive #hero-buttons #btn-check.history-copy-active,
-#hero-actions.inactive #hero-buttons #btn-fold.history-copy-active,
-#hero-actions.inactive #hero-buttons #btn-call.history-copy-active {
-  pointer-events: auto !important;
-  cursor: default !important;
-  opacity: 0.5 !important;
-  filter: grayscale(0.6) brightness(0.5) !important;
-  box-shadow: 0 3px 0 transparent, inset 0 1px 0 rgba(255,255,255,.1) !important;
-}
-#hero-actions.inactive #hero-buttons #btn-check.history-copy-active:active,
-#hero-actions.inactive #hero-buttons #btn-fold.history-copy-active:active,
-#hero-actions.inactive #hero-buttons #btn-call.history-copy-active:active {
-  transform: none !important;
-  filter: grayscale(0.6) brightness(0.5) !important;
-  box-shadow: 0 3px 0 transparent, inset 0 1px 0 rgba(255,255,255,.1) !important;
-}
-#hero-actions.inactive #hero-buttons #btn-check.history-copy-active *,
-#hero-actions.inactive #hero-buttons #btn-fold.history-copy-active *,
-#hero-actions.inactive #hero-buttons #btn-call.history-copy-active * {
-  pointer-events: auto !important;
-}
-
-#donate-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 950;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: rgba(0,0,0,.82);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-#donate-overlay.visible { display: flex; animation: donateFadeIn .2s ease; }
-@keyframes donateFadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-#donate-card-box {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  max-height: 86vh;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  background: transparent;
-  border: none;
-  border-radius: 18px;
-  padding: 0;
-  box-shadow: none;
-  animation: donateSlideUp .28s cubic-bezier(.22,.61,.36,1);
-  text-align: left;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-}
-#donate-card-box::-webkit-scrollbar { width: 0 !important; height: 0 !important; display: none !important; }
-@keyframes donateSlideUp {
-  from { transform: translateY(24px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.donate-card-stack {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1.586 / 1;
-  padding-bottom: 0;
-  box-sizing: border-box;
-  margin-bottom: 0;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  overflow: visible;
-  cursor: pointer;
-}
-.donate-card {
-  position: relative;
-  left: 0; right: 0; top: 0;
-  width: 100%;
-  aspect-ratio: 1.586 / 1;
-  border-radius: clamp(10px, 1.8vmin, 14px);
-  overflow: hidden;
-  padding: clamp(12px, 2.2vmin, 18px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  color: #ffffff;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-}
-.donate-card.donate-card-gold {
-  background: linear-gradient(135deg,
-    #4e3c12 0%,
-    #564415 12%,
-    #5e4b18 24%,
-    #67531b 36%,
-    #705a1f 48%,
-    #796123 60%,
-    #826827 72%,
-    #8a6f2a 84%,
-    #8a6f24 100%);
-  box-shadow: 0 12px 22px -8px rgba(0,0,0,.55), 0 6px 10px -4px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.2);
-}
-.donate-card::before {
-  content: ""; position: absolute; top: -30%; right: -10%;
-  width: 65%; height: 160%;
-  background: rgba(255,255,255,0.08);
-  transform: rotate(22deg); pointer-events: none;
-}
-.donate-card::after {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 20% 15%, rgba(255,255,255,0.18) 0%, transparent 45%);
-  pointer-events: none; border-radius: inherit;
-}
-
-.donate-card-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; }
-.donate-card-type {
-  font-size: clamp(11px, 1.55vmin, 12.5px); font-weight: 800;
-  letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.9;
-}
-.donate-card-club-top {
-  font-size: clamp(13px, 1.9vmin, 17px); font-weight: 900;
-  letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.95;
-  text-align: right; line-height: 1.2; text-shadow: 0 1px 2px rgba(0,0,0,.35);
-}
-.donate-card-chip {
-  position: absolute; top: clamp(30px, 4.7vmin, 40px); left: clamp(12px, 2.2vmin, 18px);
-  width: clamp(27px, 4.1vmin, 35px); height: clamp(21px, 3.1vmin, 27px);
-  border-radius: 4px;
-  background: linear-gradient(135deg,
-    #ecdfa8 0%,
-    #e8d9a0 20%,
-    #d9c87c 40%,
-    #ccb95f 60%,
-    #bda64b 80%,
-    #a89040 100%);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.25);
-  z-index: 2;
-}
-.donate-card-chip::before {
-  content: ""; position: absolute;
-  top: 20%; left: 10%; right: 10%; bottom: 20%;
-  border: 1px solid rgba(0,0,0,.25); border-radius: 2px;
-}
-.donate-card-donate {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  font-size: calc(clamp(13px, 1.9vmin, 17px) * 1.5);
-  font-weight: 900;
-  letter-spacing: calc(1.5px * 1.5);
-  text-transform: uppercase;
-  opacity: 0.95;
-  line-height: 1.2;
-  text-shadow: 0 1px 2px rgba(0,0,0,.35);
-  white-space: nowrap;
-  pointer-events: none;
-}
-.donate-copy-text {
-  position: relative; display: inline-block; padding-right: 14px;
-  user-select: none; -webkit-user-select: none; -webkit-user-drag: none;
-  transition: color .18s ease;
-}
-.donate-copy-text:active { color: var(--gold); }
-.donate-copy-text.flash-gold { color: var(--gold); }
-.donate-copy-icon {
-  position: absolute; right: 0; top: 0; width: 7px; height: 7px; pointer-events: none;
-}
-.donate-copy-icon::before, .donate-copy-icon::after {
-  content: ""; position: absolute;
-  border: 1px solid #ffffff; border-radius: 1px; background: #a89040;
-}
-.donate-copy-icon::before { width: 5px; height: 5px; left: 2px; top: 0; z-index: 1; }
-.donate-copy-icon::after  { width: 5px; height: 5px; left: 0; top: 2px; z-index: 2; }
-
-.donate-card-usdt-line {
-  position: relative; z-index: 2; margin-top: auto;
-  margin-bottom: clamp(6px, 1.2vmin, 10px);
-  text-align: left; white-space: nowrap;
-  font-size: clamp(12px, 2.1vmin, 14px); font-weight: 700;
-  letter-spacing: 0.2px; text-shadow: 0 1px 2px rgba(0,0,0,.4);
-  display: block; width: 100%;
-}
-.donate-card-bottom-line {
-  position: relative; z-index: 2; white-space: nowrap;
-  font-size: clamp(12px, 1.85vmin, 14.5px); font-weight: 700; letter-spacing: 1px;
-}
-.donate-card-bottom {
-  position: relative; z-index: 2; display: flex; justify-content: space-between;
-  align-items: flex-end; gap: 8px;
-}
-.donate-card-copied {
-  position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(20, 18, 16, 0.95); color: var(--gold);
-  font-weight: 800; font-size: clamp(14px, 1.85vmin, 16.5px);
-  padding: 10px 20px; border-radius: 10px;
-  border: 1px solid #8a6508; box-shadow: 0 4px 12px rgba(0,0,0,.8);
-  opacity: 0; pointer-events: none; transition: opacity .18s ease;
-  z-index: 5; white-space: nowrap;
-}
-.donate-card-copied.visible { opacity: 1; }
-
-@media (min-width: 641px) {
-  .donate-card-type { font-size: clamp(10px, 1.4vmin, 11.5px); }
-  .donate-card-club-top { font-size: clamp(12px, 1.75vmin, 16px); }
-  .donate-card-donate { font-size: calc(clamp(12px, 1.75vmin, 16px) * 1.5); letter-spacing: calc(1.5px * 1.5); }
-  .donate-card-usdt-line { font-size: clamp(11px, 1.9vmin, 13px); }
-  .donate-card-bottom-line { font-size: clamp(11px, 1.7vmin, 13.5px); }
-  .donate-card-copied { font-size: clamp(13px, 1.7vmin, 15.5px); }
-}
-
-@media (max-width: 767px) {
-  :root {
-    --hero-actions-bottom-pad: 3px;
-    --nav-counter-lift: 1px;
-  }
-}
 </style>
 </head>
 <body>
@@ -1697,12 +924,13 @@ html::-webkit-scrollbar, body::-webkit-scrollbar,
 
 </div>
 
+<script src="logs.js"></script>
 <script>
 window.__ppSessionStartTs = Date.now();
 window.__ppErrors = [];
 window.addEventListener('error', function(ev) {
   try {
-    window.__ppErrors.push({
+    var rec = {
       ts: Date.now(),
       kind: 'error',
       message: ev && ev.message ? String(ev.message) : 'unknown',
@@ -1710,18 +938,22 @@ window.addEventListener('error', function(ev) {
       line: ev && ev.lineno ? ev.lineno : 0,
       col: ev && ev.colno ? ev.colno : 0,
       stack: ev && ev.error && ev.error.stack ? String(ev.error.stack) : ''
-    });
+    };
+    window.__ppErrors.push(rec);
+    if (window.LogBuf && typeof LogBuf.record === 'function') LogBuf.record('error', rec);
   } catch (e) {}
 }, true);
 window.addEventListener('unhandledrejection', function(ev) {
   try {
     var r = ev && ev.reason;
-    window.__ppErrors.push({
+    var rec = {
       ts: Date.now(),
       kind: 'unhandledrejection',
       message: r && r.message ? String(r.message) : String(r),
       stack: r && r.stack ? String(r.stack) : ''
-    });
+    };
+    window.__ppErrors.push(rec);
+    if (window.LogBuf && typeof LogBuf.record === 'function') LogBuf.record('error', rec);
   } catch (e) {}
 }, true);
 </script>
@@ -2523,7 +1755,8 @@ const Engine = (() => {
   };
 
 })();
-
+  
+<script>
 const VipBots = (() => {
 
   const R = Engine.RANK_VALUE;
@@ -3501,7 +2734,7 @@ const UI = (() => {
     const suitSym   = SUIT_SYMBOL[card.suit] || '?';
     const rankTxt   = RANK_DISPLAY[card.rank] || card.rank;
     c.classList.add(suitClass);
-    c.innerHTML = `<div class="rank">${rankTxt}</div><div class="suit">${suitSym}</div>`;
+    c.innerHTML = `<div class="rank">${rankTxt}</div><div class="suit">${sym}</div>`.replace('${sym}', suitSym);
     return c;
   }
 
@@ -3564,7 +2797,7 @@ const UI = (() => {
       });
     }
   }
-
+  
   function resetSliderToStart() {
     if (!sliderState.active) {
       if (el.raiseAmountMini) {
@@ -3888,6 +3121,9 @@ const UI = (() => {
           if (v <= sliderState.callValue) applySliderValue(state, hero, handlers, sliderState.callValue);
           else applySliderValue(state, hero, handlers, snapToValidValue(state, hero, v));
         }
+        if (window.LogBuf && typeof LogBuf.record === 'function') {
+          LogBuf.record('user_action', { kind: 'quick_bet', label: btn.querySelector('.label') ? btn.querySelector('.label').textContent : '', target: target });
+        }
       });
       btn.__suppressClick = false;
     });
@@ -3910,6 +3146,7 @@ const UI = (() => {
       el.btnFold.addEventListener('click', function(e) {
         e.preventDefault(); e.stopPropagation();
         if (el.heroActions.classList.contains('inactive')) return;
+        if (window.LogBuf && typeof LogBuf.record === 'function') LogBuf.record('user_action', { kind: 'fold' });
         var h = window.__ppHeroHandlers;
         if (h && typeof h.onFold === 'function') h.onFold();
       });
@@ -3921,6 +3158,7 @@ const UI = (() => {
         e.__ppCheckHandled = true;
         e.preventDefault(); e.stopPropagation();
         if (el.heroActions.classList.contains('inactive')) return;
+        if (window.LogBuf && typeof LogBuf.record === 'function') LogBuf.record('user_action', { kind: 'check' });
         var h = window.__ppHeroHandlers;
         if (h && typeof h.onCheck === 'function') h.onCheck();
       });
@@ -3930,6 +3168,7 @@ const UI = (() => {
       el.btnCall.addEventListener('click', function(e) {
         e.preventDefault(); e.stopPropagation();
         if (el.heroActions.classList.contains('inactive')) return;
+        if (window.LogBuf && typeof LogBuf.record === 'function') LogBuf.record('user_action', { kind: 'call_or_raise_click' });
         var h = window.__ppHeroHandlers;
         var s = window.__ppHeroState;
         var hi = window.__ppHeroIndex;
@@ -4119,27 +3358,33 @@ const UI = (() => {
   function toggleStackDisplay() {
     settings.stackDisplay = (settings.stackDisplay === 'bb') ? 'chips' : 'bb';
     saveSettingsToStorage(settings);
+    if (window.LogBuf) LogBuf.record('settings_change', { key: 'stackDisplay', value: settings.stackDisplay });
   }
   function toggleShowAllHands() {
     settings.showAllHands = !settings.showAllHands;
     saveSettingsToStorage(settings);
+    if (window.LogBuf) LogBuf.record('settings_change', { key: 'showAllHands', value: settings.showAllHands });
   }
   function toggleHideHeroHand() {
     settings.hideHeroHand = !settings.hideHeroHand;
     saveSettingsToStorage(settings);
+    if (window.LogBuf) LogBuf.record('settings_change', { key: 'hideHeroHand', value: settings.hideHeroHand });
   }
   function toggleHideBoardCards() {
     settings.hideBoardCards = !settings.hideBoardCards;
     saveSettingsToStorage(settings);
+    if (window.LogBuf) LogBuf.record('settings_change', { key: 'hideBoardCards', value: settings.hideBoardCards });
   }
   function toggleBlindGrowthPeriod() {
     settings.blindGrowthHands = (Number(settings.blindGrowthHands) === 10) ? 5 : 10;
     saveSettingsToStorage(settings);
+    if (window.LogBuf) LogBuf.record('settings_change', { key: 'blindGrowthHands', value: settings.blindGrowthHands });
   }
   function toggleCardStyle() {
     settings.cardStyle = (settings.cardStyle === '4color') ? '2color' : '4color';
     applyCardStyle();
     saveSettingsToStorage(settings);
+    if (window.LogBuf) LogBuf.record('settings_change', { key: 'cardStyle', value: settings.cardStyle });
   }
 
   function clearWinnerHighlights() {
@@ -4149,12 +3394,14 @@ const UI = (() => {
   function showFinalOverlay() {
     if (!el.finalOverlay) return;
     el.finalOverlay.classList.add('visible');
+    if (window.LogBuf) LogBuf.record('overlay_open', { name: 'final' });
   }
 
   function hideFinalOverlay() {
     if (!el.finalOverlay) return;
     el.finalOverlay.classList.remove('visible');
     clearFireworks();
+    if (window.LogBuf) LogBuf.record('overlay_close', { name: 'final' });
   }
 
   let fireworkTimers = [];
@@ -4285,601 +3532,6 @@ const UI = (() => {
 </script>
 
 <script>
-const Log = (() => {
-
-  const RANK_PS = { '2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','T':'T','J':'J','Q':'Q','K':'K','A':'A' };
-  const SUIT_PS = { s:'s', h:'h', d:'d', c:'c' };
-
-  function cardPs(c) {
-    if (!c) return '??';
-    return (RANK_PS[c.rank] || c.rank) + (SUIT_PS[c.suit] || c.suit);
-  }
-
-  function cardsPs(cards) {
-    if (!cards || cards.length === 0) return '';
-    return cards.map(cardPs).join(' ');
-  }
-
-  function cardStr(c) {
-    if (!c) return '??';
-    const rank = c.rank === 'T' ? '10' : c.rank;
-    const suit = { s: '♠', h: '♥', d: '♦', c: '♣' }[c.suit] || '?';
-    return rank + suit;
-  }
-
-  function cardsStr(cards) {
-    if (!cards || cards.length === 0) return '—';
-    return cards.map(cardStr).join(' ');
-  }
-
-  function fmtNum(n) {
-    if (n === null || n === undefined || isNaN(n)) return '—';
-    return (Math.round(n * 100) / 100).toString();
-  }
-
-  function fmtEq(v) {
-    if (v === null || v === undefined || isNaN(v)) return '—';
-    return (Math.round(v * 1000) / 10) + '%';
-  }
-
-  function streetRu(s) {
-    return ({ preflop:'preflop', flop:'flop', turn:'turn', river:'river' })[s] || s;
-  }
-
-  function actionRu(a) {
-    return ({
-      fold:'fold', check:'check', call:'call', raise:'raise', bet:'bet',
-      allin:'all-in', sb:'SB', bb:'BB'
-    })[a] || a;
-  }
-
-  function psNameFor(p) {
-    if (!p) return 'Player';
-    if (p.isHero) return 'Hero';
-    const n = (typeof p.seatIndex === 'number') ? (p.seatIndex + 1) : 1;
-    return 'Player_' + n;
-  }
-
-  function psHandName(sc) {
-    if (!sc) return '';
-    const cat = sc.category;
-    const ranks = sc.ranks || [];
-    const r = (v) => {
-      if (v === 10) return 'Ten';
-      if (v === 11) return 'Jack';
-      if (v === 12) return 'Queen';
-      if (v === 13) return 'King';
-      if (v === 14) return 'Ace';
-      return String(v);
-    };
-    const rp = (v) => {
-      if (v === 10) return 'Tens';
-      if (v === 11) return 'Jacks';
-      if (v === 12) return 'Queens';
-      if (v === 13) return 'Kings';
-      if (v === 14) return 'Aces';
-      return String(v) + 's';
-    };
-    switch (cat) {
-      case 0: return 'High Card';
-      case 1: return 'One Pair, ' + rp(ranks[0] || 0);
-      case 2: return 'Two Pair, ' + rp(ranks[0] || 0) + ' and ' + rp(ranks[1] || 0);
-      case 3: return 'Three of a Kind, ' + rp(ranks[0] || 0);
-      case 4: return 'Straight, ' + r(ranks[0] || 0) + ' High';
-      case 5: return 'Flush, ' + r(ranks[0] || 0) + ' High';
-      case 6: return 'Full House, ' + rp(ranks[0] || 0) + ' full of ' + rp(ranks[1] || 0);
-      case 7: return 'Four of a Kind, ' + rp(ranks[0] || 0);
-      case 8: return 'Straight Flush, ' + r(ranks[0] || 0) + ' High';
-      case 9: return 'Royal Flush';
-      default: return '';
-    }
-  }
-
-  function fmtDateEt(d) {
-    const pad = (n) => (n < 10 ? '0' + n : String(n));
-    return d.getFullYear() + '/' + pad(d.getMonth() + 1) + '/' + pad(d.getDate()) +
-      ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()) + ' ET';
-  }
-
-  function botsLevelInfo() {
-    const current = window.__ppCurrentBotsLevel || 'vip';
-    const pending = window.__ppPendingBotsLevel || 'none';
-    const b = (typeof window !== 'undefined') ? window.Bots : null;
-    const proAvailable = !!(b && b.__source === 'bots.js' && window.__botsJsLoaded === true);
-    return {
-      current: current,
-      pending: pending,
-      proAvailable: proAvailable,
-      version: (b && b.__version) ? b.__version : '—'
-    };
-  }
-
-  function buildReport(snap, meta) {
-    const L = [];
-    const now = new Date();
-    const bl = botsLevelInfo();
-    L.push('=== THE POKER WAY — HAND LOG ===');
-    L.push('Captured: ' + now.toLocaleString('en-US'));
-    L.push('Format version: v4');
-    L.push('Current bots: ' + bl.current);
-    L.push('Pending bots switch: ' + bl.pending);
-    L.push('PRO available: ' + (bl.proAvailable ? 'yes' : 'no') + ' | version ' + bl.version);
-    L.push('Diagnostics source: bot');
-    L.push('Hand number: #' + snap.handNumber);
-    L.push('Blind level (index): ' + snap.levelIndex);
-    L.push('Blinds: SB ' + snap.blinds.sb + ' / BB ' + snap.blinds.bb + (snap.blinds.ante > 0 ? ' / ante ' + snap.blinds.ante : ''));
-    L.push('Button number (internal index): ' + snap.buttonIndex);
-    L.push('Final street: ' + (snap.finalStreet ? streetRu(snap.finalStreet) : '—'));
-    L.push('Hand complete: ' + (snap.handOver ? 'yes' : 'no'));
-    L.push('Capture mode: ' + (meta.viewingPast ? 'history' : 'live') + (meta.replayActive ? ' / replay' : ''));
-    L.push('');
-
-    L.push('--- TABLE COMPOSITION ---');
-    for (const p of snap.players) {
-      const cls = p.botClass || (p.isHero ? 'HERO' : '—');
-      const type = p.botType || (p.isHero ? 'Player' : '—');
-      L.push('Seat ' + p.seatIndex +
-        ' | ' + p.name +
-        ' | ' + (p.isHero ? 'HERO' : 'bot') +
-        ' | type ' + type + ' | class ' + cls +
-        ' | position ' + (p.position || '—') +
-        ' | stack ' + p.stack +
-        (p.eliminated ? ' | ELIMINATED' : '') +
-        (p.inHand ? ' | in hand' : '') +
-        ' | cards: ' + cardsStr(p.holeCards));
-    }
-    L.push('');
-
-    L.push('--- BOARD ---');
-    if (snap.board.length === 0) {
-      L.push('Board empty (did not reach flop)');
-    } else {
-      L.push('Final board: ' + cardsStr(snap.board));
-      const parts = [];
-      if (snap.board.length >= 3) parts.push('flop: ' + cardsStr(snap.board.slice(0,3)));
-      if (snap.board.length >= 4) parts.push('turn: ' + cardStr(snap.board[3]));
-      if (snap.board.length >= 5) parts.push('river: ' + cardStr(snap.board[4]));
-      L.push(parts.join(' | '));
-    }
-    L.push('');
-
-    L.push('--- ACTION LOG ---');
-    const log = snap.actionLog || [];
-    if (log.length === 0) {
-      L.push('No actions');
-    } else {
-      let lastStreet = null;
-      let step = 0;
-      for (const a of log) {
-        step++;
-        if (a.street !== lastStreet) {
-          lastStreet = a.street;
-          L.push('');
-          L.push('>> Street: ' + streetRu(a.street));
-        }
-        const p = snap.players.find(pl => pl.seatIndex === a.playerIndex);
-        const who = p ? (p.name + ' [' + (p.position || '?') + ']') : ('seat ' + a.playerIndex);
-        L.push('  #' + step + ' ' + who + ' → ' + actionRu(a.actionType) +
-          (a.amount ? ' ' + a.amount : '') +
-          ' | pot after: ' + (a.potAfter !== undefined ? a.potAfter : '—'));
-
-        if (a.botCtx) {
-          const c = a.botCtx;
-          L.push('       [BOT DECISION — input]');
-          L.push('       type: ' + c.botType + ' / class ' + c.botClass);
-          L.push('       position: ' + c.position + ' | stack BB: ' + fmtNum(c.stackBB) + ' | active: ' + c.numActive);
-          L.push('       street: ' + streetRu(c.street) + ' | pot: ' + fmtNum(c.pot) + ' | to call: ' + fmtNum(c.toCall) +
-            ' | min raise: ' + fmtNum(c.minRaise) + ' | current bet: ' + fmtNum(c.currentBet));
-          L.push('       stack: ' + fmtNum(c.myStack) + ' | invested this street: ' + fmtNum(c.committedThisStreet) +
-            ' | total: ' + fmtNum(c.committedTotal));
-          L.push('       cards: ' + cardsStr(c.holeCards) + ' | board: ' + cardsStr(c.board));
-          if (c.diagnostics) {
-            const d = c.diagnostics;
-            L.push('       [DIAGNOSTICS from bot] source: ' + (d.source || '—'));
-            if (d.strength !== undefined && d.strength !== null) L.push('       strength: ' + fmtNum(d.strength));
-            if (d.preflopStrength !== undefined && d.preflopStrength !== null) L.push('       preflop strength: ' + fmtNum(d.preflopStrength));
-            if (d.postflopStrength !== undefined && d.postflopStrength !== null) L.push('       postflop strength: ' + fmtNum(d.postflopStrength));
-            if (d.handName) L.push('       hand: ' + d.handName);
-            if (d.chart) L.push('       chart: ' + d.chart);
-            if (d.threshold !== undefined && d.threshold !== null) L.push('       threshold: ' + d.threshold);
-            if (d.reason) L.push('       RESULT: ' + d.reason);
-          } else {
-            L.push('       [DIAGNOSTICS MISSING — bot did not provide diagnostics]');
-          }
-        }
-
-        if (a.heroCtx) {
-          const h = a.heroCtx;
-          L.push('       [HERO ACTION]');
-          L.push('       street: ' + streetRu(h.street) + ' | action: ' + actionRu(h.action) +
-            (h.amount ? ' ' + h.amount : ''));
-          L.push('       pot before: ' + fmtNum(h.potBefore) + ' | after: ' + fmtNum(h.potAfter));
-          L.push('       stack before: ' + fmtNum(h.stackBefore) + ' | after: ' + fmtNum(h.stackAfter));
-          L.push('       invested this street: ' + fmtNum(h.committedThisStreet) +
-            ' | total: ' + fmtNum(h.committedTotal));
-        }
-      }
-    }
-    L.push('');
-
-    L.push('--- HAND RESULTS ---');
-    if (!snap.showdownResults) {
-      L.push('Results unavailable');
-    } else {
-      const sr = snap.showdownResults;
-      if (sr.uncontested) L.push('No showdown (all folded)');
-      if (sr.scores) {
-        for (const [id, sc] of Object.entries(sr.scores)) {
-          const p = snap.players.find(pl => String(pl.id) === String(id));
-          if (!p) continue;
-          if (!sc) { L.push('  ' + p.name + ': did not reach showdown'); continue; }
-          L.push('  ' + p.name + ' [' + (p.position || '?') + '] cards ' + cardsStr(p.holeCards) +
-            ' → ' + sc.name + ' (category strength ' + sc.category + ', ranks ' + (sc.ranks || []).join(',') + ')');
-        }
-      }
-      L.push('');
-      L.push('  Side pots:');
-      for (let i = 0; i < (sr.pots || []).length; i++) {
-        const pot = sr.pots[i];
-        L.push('   pot #' + (i + 1) + ': amount ' + pot.amount + ' | winners: ' + (pot.winners || []).join(', '));
-      }
-      L.push('');
-      L.push('  Payouts:');
-      for (const [id, amount] of Object.entries(sr.payouts || {})) {
-        const p = snap.players.find(pl => String(pl.id) === String(id));
-        if (!p) continue;
-        const committed = p.committedTotal || 0;
-        L.push('   ' + p.name + ': received ' + amount + ' | invested ' + committed + ' | net ' + (amount - committed));
-      }
-    }
-    L.push('');
-
-    L.push('--- END-OF-HAND VISUALS ---');
-    const alive = snap.players.filter(p => !p.eliminated);
-    L.push('Rank/ITM: ' + (alive.length > 0 ? 'active ' + alive.length + ' of ' + snap.players.length + ', ITM 3' : '—'));
-    L.push('Pot line: Pot: ' + (UI.formatChips ? UI.formatChips(snap.pot, snap) : snap.pot));
-    L.push('Blinds line: Blinds: ' + snap.blinds.sb + '/' + snap.blinds.bb +
-      (snap.blinds.ante > 0 ? ' (' + snap.blinds.ante + ')' : ''));
-    L.push('Board on screen: ' + cardsStr(snap.board));
-    L.push('');
-    L.push('Visual settings:');
-    L.push('  card style: ' + (UI.settings ? UI.settings.cardStyle : '—'));
-    L.push('  stack display: ' + (UI.settings ? UI.settings.stackDisplay : '—'));
-    L.push('  hide hero hand: ' + (UI.settings && UI.settings.hideHeroHand ? 'yes' : 'no'));
-    L.push('  hide board cards: ' + (UI.settings && UI.settings.hideBoardCards ? 'yes' : 'no'));
-    L.push('  show all: ' + (UI.settings && UI.settings.showAllHands ? 'yes' : 'no'));
-    L.push('  blind growth period: ' + (UI.settings ? UI.settings.blindGrowthHands : '—'));
-    L.push('  turn time: ' + (UI.settings ? UI.settings.turnTime : '—') + ' sec');
-    L.push('');
-    L.push('=== END OF LOG ===');
-    return L.join('\n');
-  }
-
-  function safeJsonStringify(obj) {
-    try {
-      return JSON.stringify(obj, function(key, value) {
-        if (typeof value === 'function') return '[function]';
-        if (value instanceof Map) {
-          const o = {};
-          value.forEach((v, k) => { o[k] = v; });
-          return o;
-        }
-        if (value instanceof Set) {
-          return Array.from(value);
-        }
-        return value;
-      });
-    } catch (e) {
-      return '"[unserializable]"';
-    }
-  }
-
-  function buildAppReport(app) {
-    const L = [];
-    const now = new Date();
-    const startTs = app.sessionStartTs;
-    const uptime = Date.now() - startTs;
-    const bl = botsLevelInfo();
-
-    L.push('=== THE POKER WAY — FULL APP LOG (SESSION) ===');
-    L.push('Captured: ' + now.toLocaleString('en-US'));
-    L.push('Format version: v4');
-    L.push('Current bots: ' + bl.current);
-    L.push('Pending bots switch: ' + bl.pending);
-    L.push('PRO available: ' + (bl.proAvailable ? 'yes' : 'no') + ' | version ' + bl.version);
-    L.push('');
-
-    L.push('--- ENVIRONMENT ---');
-    L.push('User agent: ' + (navigator.userAgent || '—'));
-    L.push('Platform: ' + (navigator.platform || '—'));
-    L.push('Language: ' + (navigator.language || '—'));
-    L.push('Languages: ' + ((navigator.languages && navigator.languages.join(', ')) || '—'));
-    L.push('URL: ' + (location && location.href ? location.href : '—'));
-    L.push('Protocol: ' + (location && location.protocol ? location.protocol : '—'));
-    L.push('Secure context: ' + (window.isSecureContext ? 'yes' : 'no'));
-    L.push('Screen: ' + (screen.width || 0) + 'x' + (screen.height || 0));
-    L.push('Window: ' + window.innerWidth + 'x' + window.innerHeight);
-    L.push('Device pixel ratio: ' + (window.devicePixelRatio || 1));
-    L.push('Visible viewport: ' + (window.visualViewport ? (Math.round(window.visualViewport.width) + 'x' + Math.round(window.visualViewport.height) + ' @scale ' + window.visualViewport.scale) : '—'));
-    L.push('Orientation: ' + ((screen.orientation && screen.orientation.type) || (window.innerWidth > window.innerHeight ? 'landscape' : 'portrait')));
-    L.push('Touch: ' + (('ontouchstart' in window) ? 'yes' : 'no'));
-    L.push('Max touch points: ' + (navigator.maxTouchPoints || 0));
-    L.push('Timezone: ' + (Intl && Intl.DateTimeFormat ? Intl.DateTimeFormat().resolvedOptions().timeZone : '—'));
-    L.push('Session start: ' + new Date(startTs).toLocaleString('en-US'));
-    L.push('Uptime: ' + Math.round(uptime / 1000) + ' sec (' + uptime + ' ms)');
-    L.push('');
-
-    L.push('--- SESSION STATE ---');
-    const s = app.session;
-    L.push('Current bots: ' + bl.current);
-    L.push('Pending bots switch: ' + bl.pending);
-    L.push('PRO available: ' + (bl.proAvailable ? 'yes' : 'no'));
-    L.push('active: ' + (s.active ? 'yes' : 'no'));
-    L.push('isPaused: ' + (s.isPaused ? 'yes' : 'no'));
-    L.push('waitingForHero: ' + (s.waitingForHero ? 'yes' : 'no'));
-    L.push('heroEliminated: ' + (s.heroEliminated ? 'yes' : 'no'));
-    L.push('heroFinishPlace: ' + s.heroFinishPlace);
-    L.push('tournamentOver: ' + (s.tournamentOver ? 'yes' : 'no'));
-    L.push('finalShown: ' + (s.finalShown ? 'yes' : 'no'));
-    L.push('huAutoActive: ' + (s.huAutoActive ? 'yes' : 'no'));
-    L.push('history.length: ' + (s.history ? s.history.length : 0));
-    L.push('viewingIndex: ' + s.viewingIndex);
-    L.push('Mode: ' + (s.replay.active ? 'replay' : (s.viewingIndex >= 0 ? 'history' : 'live game')));
-    L.push('');
-
-    L.push('--- CURRENT TABLE STATE ---');
-    const st = s.state;
-    if (!st) {
-      L.push('Table state missing');
-    } else {
-      L.push('Hand #' + st.handNumber + ' | level ' + st.levelIndex + ' | handsAtLevel ' + st.handsAtLevel);
-      L.push('Street: ' + st.street + ' | actingIndex: ' + st.actingIndex);
-      L.push('Button: ' + st.buttonIndex + ' | blinds SB ' + st.blinds.sb + ' / BB ' + st.blinds.bb + ' / ante ' + st.blinds.ante);
-      L.push('Pot: ' + st.pot + ' | currentBet: ' + st.currentBet + ' | minRaise: ' + st.minRaise);
-      L.push('Board: ' + (st.board && st.board.length ? st.board.map(c => c.rank + c.suit).join(' ') : 'empty'));
-      L.push('handOver: ' + (st.handOver ? 'yes' : 'no') + ' | finalStreet: ' + (st.finalStreet || '—'));
-      L.push('');
-      L.push('Players:');
-      for (const p of st.players) {
-        L.push('  seat ' + p.seatIndex + ' | ' + p.name +
-          ' | ' + (p.isHero ? 'HERO' : 'bot ' + (p.botType || '—') + ' / ' + (p.botClass || '—')) +
-          ' | position ' + (p.position || '—') +
-          ' | stack ' + p.stack +
-          ' | cards ' + (p.holeCards && p.holeCards.length ? p.holeCards.map(c => c.rank + c.suit).join(' ') : '—'));
-      }
-    }
-    L.push('');
-
-    L.push('--- SETTINGS ---');
-    const settings = UI.settings || {};
-    L.push('cardStyle: ' + settings.cardStyle);
-    L.push('stackDisplay: ' + settings.stackDisplay);
-    L.push('blindGrowthHands: ' + settings.blindGrowthHands);
-    L.push('turnTime: ' + settings.turnTime);
-    L.push('showAllHands: ' + (settings.showAllHands ? 'yes' : 'no'));
-    L.push('hideHeroHand: ' + (settings.hideHeroHand ? 'yes' : 'no'));
-    L.push('hideBoardCards: ' + (settings.hideBoardCards ? 'yes' : 'no'));
-    L.push('showAllShowdown: ' + (settings.showAllShowdown ? 'yes' : 'no'));
-    L.push('');
-
-    L.push('--- UI STATE ---');
-    L.push('hero-actions inactive: ' + (UI.el.heroActions && UI.el.heroActions.classList.contains('inactive') ? 'yes' : 'no'));
-    if (UI.el.btnFold) L.push('Fold: disabled ' + (UI.el.btnFold.disabled ? 'yes' : 'no'));
-    if (UI.el.btnCheck) L.push('Check: disabled ' + (UI.el.btnCheck.disabled ? 'yes' : 'no'));
-    if (UI.el.btnCall) L.push('Call: disabled ' + (UI.el.btnCall.disabled ? 'yes' : 'no'));
-    L.push('');
-
-    L.push('--- MODULES ---');
-    L.push('window.Bots.__level: ' + ((window.Bots && window.Bots.__level) || '—'));
-    L.push('window.Bots.__version: ' + ((window.Bots && window.Bots.__version) || '—'));
-    L.push('window.Bots.__source: ' + ((window.Bots && window.Bots.__source) || '—'));
-    L.push('window.__botsJsLoaded: ' + (window.__botsJsLoaded ? 'yes' : 'no'));
-    L.push('window.VipBots available: ' + (window.VipBots ? 'yes' : 'no'));
-    L.push('');
-
-    L.push('--- SESSION ERRORS ---');
-    const errs = app.errors || [];
-    if (errs.length === 0) {
-      L.push('No errors recorded');
-    } else {
-      L.push('Total: ' + errs.length);
-      for (const e of errs) {
-        L.push('  [' + new Date(e.ts).toLocaleString('en-US') + '] ' + e.kind + ': ' + e.message);
-        if (e.stack) L.push('    stack: ' + String(e.stack).split('\n').slice(0, 5).join(' | '));
-      }
-    }
-    L.push('');
-    L.push('=== END OF APP LOG ===');
-    return L.join('\n');
-  }
-
-  function buildPokerStarsHistory(snap) {
-    if (!snap) return '';
-    const L = [];
-    const now = new Date();
-
-    const sb = snap.blinds ? snap.blinds.sb : 10;
-    const bb = snap.blinds ? snap.blinds.bb : 20;
-    const ante = snap.blinds ? (snap.blinds.ante || 0) : 0;
-    const handId = 1000000000 + (snap.handNumber || 0);
-    const tournamentId = 2000000000 + (snap.handNumber || 0);
-    const levelNumber = (snap.levelIndex || 0) + 1;
-    const maxSeats = snap.players ? snap.players.length : 8;
-    const buttonSeat = (typeof snap.buttonIndex === 'number') ? (snap.buttonIndex + 1) : 1;
-    const buyin = '$0.00+$0.00';
-    const dateStr = fmtDateEt(now);
-    const tableName = 'ThePokerWay - Sit & Go 8-max';
-
-    L.push('PokerStars Hand #' + handId + ': Tournament #' + tournamentId + ', ' + buyin +
-      ' USD Hold\'em No Limit - Level ' + levelNumber + ' (' + sb + '/' + bb + ') - ' + dateStr);
-    L.push('Table \'' + tableName + '\' ' + maxSeats + '-max Seat #' + buttonSeat + ' is the button');
-
-    const sortedPlayers = (snap.players || []).slice().sort((a, b) => a.seatIndex - b.seatIndex);
-
-    for (const p of sortedPlayers) {
-      const seatNum = p.seatIndex + 1;
-      L.push('Seat ' + seatNum + ': ' + psNameFor(p) + ' (' + p.stack + ' in chips)');
-    }
-
-    const alive = (snap.players || []).filter(p => !p.eliminated);
-    const isHU = alive.length === 2;
-    let sbSeatPlayer = null, bbSeatPlayer = null;
-    if (isHU) {
-      sbSeatPlayer = sortedPlayers.find(p => p.seatIndex === snap.buttonIndex) || null;
-      if (sbSeatPlayer) {
-        const idx = sortedPlayers.indexOf(sbSeatPlayer);
-        for (let k = 1; k <= sortedPlayers.length; k++) {
-          const cand = sortedPlayers[(idx + k) % sortedPlayers.length];
-          if (!cand.eliminated && cand.inHand) { bbSeatPlayer = cand; break; }
-        }
-      }
-    } else {
-      const btnIdx = sortedPlayers.findIndex(p => p.seatIndex === snap.buttonIndex);
-      if (btnIdx >= 0) {
-        for (let k = 1; k <= sortedPlayers.length; k++) {
-          const cand = sortedPlayers[(btnIdx + k) % sortedPlayers.length];
-          if (!cand.eliminated && cand.inHand) { sbSeatPlayer = cand; break; }
-        }
-        if (sbSeatPlayer) {
-          const sbIdx = sortedPlayers.indexOf(sbSeatPlayer);
-          for (let k = 1; k <= sortedPlayers.length; k++) {
-            const cand = sortedPlayers[(sbIdx + k) % sortedPlayers.length];
-            if (!cand.eliminated && cand.inHand) { bbSeatPlayer = cand; break; }
-          }
-        }
-      }
-    }
-
-    if (ante > 0) {
-      for (const p of sortedPlayers) {
-        if (p.eliminated) continue;
-        L.push(psNameFor(p) + ': posts the ante ' + ante);
-      }
-    }
-    if (sbSeatPlayer) L.push(psNameFor(sbSeatPlayer) + ': posts small blind ' + sb);
-    if (bbSeatPlayer) L.push(psNameFor(bbSeatPlayer) + ': posts big blind ' + bb);
-    L.push('*** HOLE CARDS ***');
-
-    const hero = (snap.players || []).find(p => p.isHero);
-    if (hero && hero.holeCards && hero.holeCards.length === 2) {
-      L.push('Dealt to ' + psNameFor(hero) + ' [' + cardsPs(hero.holeCards) + ']');
-    }
-
-    const log = snap.actionLog || [];
-    let shownStreet = null;
-    const boardSnapshot = (snap.board || []).map(c => c);
-
-    for (const a of log) {
-      if (a.street !== shownStreet) {
-        shownStreet = a.street;
-        if (shownStreet === 'flop') {
-          const flop = boardSnapshot.slice(0, 3);
-          if (flop.length === 3) L.push('*** FLOP *** [' + cardsPs(flop) + ']');
-        } else if (shownStreet === 'turn') {
-          const turn = boardSnapshot.slice(0, 4);
-          if (turn.length === 4) L.push('*** TURN *** [' + cardsPs(turn.slice(0,3)) + '] [' + cardPs(turn[3]) + ']');
-        } else if (shownStreet === 'river') {
-          const river = boardSnapshot.slice(0, 5);
-          if (river.length === 5) L.push('*** RIVER *** [' + cardsPs(river.slice(0,4)) + '] [' + cardPs(river[4]) + ']');
-        }
-      }
-      const p = (snap.players || []).find(pl => pl.seatIndex === a.playerIndex);
-      if (!p) continue;
-      const pname = psNameFor(p);
-      if (a.actionType === 'sb' || a.actionType === 'bb') continue;
-      if (a.actionType === 'fold') L.push(pname + ': folds');
-      else if (a.actionType === 'check') L.push(pname + ': checks');
-      else if (a.actionType === 'call') L.push(pname + ': calls ' + (a.amount || 0));
-      else if (a.actionType === 'bet') L.push(pname + ': bets ' + (a.amount || 0));
-      else if (a.actionType === 'raise') L.push(pname + ': raises ' + (a.amount || 0) + ' to ' + (a.amount || 0));
-      else if (a.actionType === 'allin') L.push(pname + ': is all-in');
-    }
-
-    if (snap.showdownResults) {
-      const sr = snap.showdownResults;
-      if (!sr.uncontested) {
-        L.push('*** SHOW DOWN ***');
-        const scores = sr.scores || {};
-        for (const [id, sc] of Object.entries(scores)) {
-          const p = (snap.players || []).find(pl => String(pl.id) === String(id));
-          if (!p) continue;
-          if (p.holeCards && p.holeCards.length === 2) {
-            L.push(psNameFor(p) + ': shows [' + cardsPs(p.holeCards) + '] (' + psHandName(sc) + ')');
-          }
-        }
-        const payouts = sr.payouts || {};
-        const mainWinner = Object.keys(payouts).sort((a, b) => payouts[b] - payouts[a])[0];
-        if (mainWinner) {
-          const p = (snap.players || []).find(pl => String(pl.id) === String(mainWinner));
-          if (p) {
-            L.push(psNameFor(p) + ' collected ' + payouts[mainWinner] + ' from pot');
-          }
-        }
-      }
-    }
-
-    L.push('*** SUMMARY ***');
-    L.push('Total pot ' + (snap.pot || 0) + ' | Rake 0');
-    if (snap.board && snap.board.length > 0) {
-      const parts = [];
-      if (snap.board.length >= 3) parts.push('[' + cardsPs(snap.board.slice(0,3)) + ']');
-      if (snap.board.length >= 4) parts.push('[' + cardPs(snap.board[3]) + ']');
-      if (snap.board.length >= 5) parts.push('[' + cardPs(snap.board[4]) + ']');
-      L.push('Board ' + parts.join(' '));
-    }
-    const sr = snap.showdownResults;
-    const scores = (sr && sr.scores) || {};
-    for (const p of sortedPlayers) {
-      const seatNum = p.seatIndex + 1;
-      const pname = psNameFor(p);
-      const payout = sr && sr.payouts ? (sr.payouts[p.id] || 0) : 0;
-      const sc = scores[p.id] || scores[String(p.id)] || null;
-      if (payout > 0) {
-        L.push('Seat ' + seatNum + ': ' + pname + ' showed [' + cardsPs(p.holeCards || []) + '] and won (' + payout + ')' + (sc ? ' with ' + psHandName(sc) : ''));
-      } else if (!p.folded && p.holeCards && p.holeCards.length === 2) {
-        L.push('Seat ' + seatNum + ': ' + pname + ' showed [' + cardsPs(p.holeCards) + ']' + (sc ? ' and lost with ' + psHandName(sc) : ''));
-      } else {
-        L.push('Seat ' + seatNum + ': ' + pname + ' folded before Flop (didn\'t bet)');
-      }
-    }
-    return L.join('\n');
-  }
-
-  async function copyToClipboard(text) {
-    try {
-      window.__ppAllowLogCopy = true;
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(text);
-          return true;
-        }
-      } catch (e) {}
-      try {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        ta.style.top = '0';
-        ta.setAttribute('readonly', 'readonly');
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        let ok = false;
-        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-        document.body.removeChild(ta);
-        return ok;
-      } catch (e) {
-        return false;
-      }
-    } finally {
-      setTimeout(() => { window.__ppAllowLogCopy = false; }, 0);
-    }
-  }
-
-  return { buildReport, buildAppReport, buildPokerStarsHistory, copyToClipboard };
-
-})();
-
 (() => {
 
   const session = {
@@ -4926,6 +3578,16 @@ const Log = (() => {
   function onDomReady() {
     window.__ppCurrentBotsLevel = detectInitialBotsLevel();
     window.__ppPendingBotsLevel = 'none';
+    if (window.LogBuf) {
+      LogBuf.init({
+        sessionStartTs: window.__ppSessionStartTs || Date.now(),
+        errors: window.__ppErrors || []
+      });
+      LogBuf.record('session_start', {
+        botsLevel: window.__ppCurrentBotsLevel,
+        ua: navigator.userAgent
+      });
+    }
     UI.init();
     cacheDom();
     bindGlobalHandlers();
@@ -4947,6 +3609,9 @@ const Log = (() => {
         UI.alignPercentBlockBottom();
         UI.relayoutSlider();
       }, 250);
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (window.LogBuf) LogBuf.record('visibility_change', { hidden: document.hidden });
     });
     updateBlindRowsLock();
     UI.setHeroTimerZoneEnabled(true);
@@ -5011,27 +3676,48 @@ const Log = (() => {
     }
   }
 
+  function buildAppMeta() {
+    return {
+      sessionStartTs: window.__ppSessionStartTs || Date.now(),
+      errors: window.__ppErrors || [],
+      session,
+      botsLevel: window.__ppCurrentBotsLevel,
+      pendingBotsLevel: window.__ppPendingBotsLevel,
+      botsVersion: (window.Bots && window.Bots.__version) || '—',
+      botsSource: (window.Bots && window.Bots.__source) || '—',
+      botsLoaded: !!window.__botsJsLoaded,
+      proAvailable: detectProAvailable(),
+      uiSettings: UI.settings,
+      uiState: {
+        heroActionsInactive: UI.el.heroActions ? UI.el.heroActions.classList.contains('inactive') : true,
+        btnFoldDisabled: UI.el.btnFold ? UI.el.btnFold.disabled : true,
+        btnCheckDisabled: UI.el.btnCheck ? UI.el.btnCheck.disabled : true,
+        btnCallDisabled: UI.el.btnCall ? UI.el.btnCall.disabled : true,
+        btnCallMode: UI.el.btnCall ? (UI.el.btnCall.classList.contains('mode-raise') ? 'raise' : (UI.el.btnCall.classList.contains('mode-bet') ? 'bet' : 'call')) : 'call',
+        slider: UI.getSliderState ? UI.getSliderState() : null
+      }
+    };
+  }
+
   async function copyHandLogForCurrentHistory() {
     if (!inHistoryView()) return;
     const snap = session.history[session.viewingIndex];
     if (!snap) return;
     const meta = { viewingPast: true, replayActive: false };
     let text = '';
-    try { text = Log.buildReport(snap, meta); } catch (e) { return; }
-    try { await Log.copyToClipboard(text); } catch (e) {}
+    try {
+      if (window.LogBuf) text = LogBuf.buildHandReport(snap, meta);
+    } catch (e) { return; }
+    try { await LogBuf.copyToClipboard(text); } catch (e) {}
   }
 
   async function copyAppLog() {
     if (!inHistoryView()) return;
     let text = '';
     try {
-      text = Log.buildAppReport({
-        sessionStartTs: window.__ppSessionStartTs || Date.now(),
-        errors: window.__ppErrors || [],
-        session
-      });
+      if (window.LogBuf) text = LogBuf.buildAppReport(session, buildAppMeta());
     } catch (e) { return; }
-    try { await Log.copyToClipboard(text); } catch (e) {}
+    try { await LogBuf.copyToClipboard(text); } catch (e) {}
   }
 
   async function copyPokerStarsHistory() {
@@ -5039,8 +3725,8 @@ const Log = (() => {
     const snap = session.history[session.viewingIndex];
     if (!snap) return;
     let text = '';
-    try { text = Log.buildPokerStarsHistory(snap); } catch (e) { return; }
-    try { await Log.copyToClipboard(text); } catch (e) {}
+    try { text = LogBuf.buildPokerStarsHistory(snap); } catch (e) { return; }
+    try { await LogBuf.copyToClipboard(text); } catch (e) {}
   }
 
   function bindHistoryCopyZones() {
@@ -5129,6 +3815,7 @@ const Log = (() => {
 
     window.__ppPendingBotsLevel = nextPending;
     UI.applyDealerChipIndicator();
+    if (window.LogBuf) LogBuf.record('user_action', { kind: 'dealer_chip_tap', pending: nextPending });
   }
 
   function clearPendingOnHandEnd() {
@@ -5568,6 +4255,8 @@ const Log = (() => {
     UI.setHeroTimerReady();
     updateHuGlowFromState();
 
+    if (window.LogBuf) LogBuf.record('session_restart', { botsLevel: window.__ppCurrentBotsLevel });
+
     startNewSession();
   }
 
@@ -5625,6 +4314,8 @@ const Log = (() => {
     UI.setHeroTimerReady();
     updateHuGlowFromState();
 
+    if (window.LogBuf) LogBuf.record('session_start', { botsLevel: window.__ppCurrentBotsLevel, newSession: true });
+
     startHand();
   }
 
@@ -5659,6 +4350,21 @@ const Log = (() => {
     Engine.startHand(session.state);
     session.viewingIndex = -1;
     session.isPaused = false;
+
+    if (window.LogBuf) {
+      LogBuf.setHandContext(session.state.handNumber, 'live');
+      LogBuf.record('hand_start', {
+        handNumber: session.state.handNumber,
+        levelIndex: session.state.levelIndex,
+        blinds: { ...session.state.blinds },
+        buttonIndex: session.state.buttonIndex,
+        players: session.state.players.map(p => ({
+          seat: p.seatIndex, name: p.name, isHero: p.isHero,
+          botType: p.botType, position: p.position, stack: p.stack,
+          holeCards: p.holeCards.map(c => c.rank + c.suit)
+        }))
+      });
+    }
 
     UI.clearWinnerHighlights();
     UI.renderTable(session.state);
@@ -5695,6 +4401,7 @@ const Log = (() => {
       if (botTournamentReloadTimer) clearTimeout(botTournamentReloadTimer);
       botTournamentReloadTimer = setTimeout(() => window.location.reload(), 60 * 1000);
     }
+    if (window.LogBuf) LogBuf.record('session_end', { winner: winner ? winner.name : '—', heroWon: heroIsWinner });
   }
 
   function refreshQuickPercentList() {
@@ -5755,11 +4462,13 @@ const Log = (() => {
     session.heroTimerTotal = seconds;
     session.heroTimerRemaining = seconds;
     UI.showHeroTimer(seconds);
+    if (window.LogBuf) LogBuf.record('timer_start', { kind: 'hero', seconds });
     session.heroTimerIntervalId = setInterval(() => {
       session.heroTimerRemaining -= 1;
       UI.updateHeroTimer(session.heroTimerRemaining, session.heroTimerTotal);
       if (session.heroTimerRemaining < 0) {
         stopHeroTimer();
+        if (window.LogBuf) LogBuf.record('timer_end', { kind: 'hero', reason: 'expired' });
         const s = Number(UI.settings.turnTime) || 0;
         if (s > 0) UI.setHeroTimerReady();
         else UI.setHeroTimerIdle();
@@ -5784,7 +4493,11 @@ const Log = (() => {
   }
 
   function stopHeroTimer() {
-    if (session.heroTimerIntervalId) { clearInterval(session.heroTimerIntervalId); session.heroTimerIntervalId = null; }
+    if (session.heroTimerIntervalId) {
+      clearInterval(session.heroTimerIntervalId);
+      session.heroTimerIntervalId = null;
+      if (window.LogBuf) LogBuf.record('timer_end', { kind: 'hero', reason: 'stop' });
+    }
     session.heroTimerRemaining = 0;
   }
 
@@ -5850,6 +4563,7 @@ const Log = (() => {
           stack: err && err.stack ? String(err.stack) : '',
           botType: bot.botType
         });
+        if (window.LogBuf) LogBuf.record('error', { kind: 'bot-decision-error', message: String(err && err.message || err), stack: String(err && err.stack || ''), botType: bot.botType });
       } catch (e) {}
       result = { action: 'fold', amount: 0 };
     }
@@ -5860,11 +4574,13 @@ const Log = (() => {
   function botTurn(bot, idx) {
     const state = session.state;
     clearTimeout(session.botTimerId);
+    const startedAt = Date.now();
     session.botTimerId = setTimeout(() => {
       if (session.isPaused || session.viewingIndex >= 0 || session.replay.active) return;
       if (state.handOver || !session.active) return;
       const ctx = buildBotContext(bot, idx);
       const result = decideBotAction(bot, ctx);
+      const decidedAt = Date.now();
       const toCall = Math.max(0, state.currentBet - bot.committedThisStreet);
       let engineAction = { type: result.action, amount: result.amount || 0 };
       if (engineAction.type === 'check' && toCall > 0) engineAction = { type: 'fold', amount: 0 };
@@ -5892,13 +4608,66 @@ const Log = (() => {
         engineAction = fallback;
       }
       const botCtx = buildBotLogCtx(bot, ctx, engineAction, result);
+      botCtx.decisionTimeMs = decidedAt - startedAt;
+      botCtx.botResultType = result.action;
+      botCtx.appliedType = engineAction.type;
+      botCtx.mismatch = (result.action !== engineAction.type);
       pushActionLog(state, idx, engineAction.type, engineAction.amount || 0, { botCtx });
+      if (window.LogBuf) LogBuf.record('bot_decision', { botCtx });
       UI.updateSeats(state);
       UI.updatePot(state);
       UI.clearActiveHighlight();
       refreshQuickPercentList();
       advanceOrFinish();
     }, 1000);
+    if (window.LogBuf) LogBuf.record('timer_start', { kind: 'bot', seat: bot.seatIndex, delay: 1000 });
+  }
+
+  function detectContextType(state, player, idx, toCall) {
+    const bb = state.blinds.bb;
+    const street = state.street;
+    const numActive = state.players.filter(p => !p.folded && !p.eliminated).length;
+
+    if (street !== 'preflop') {
+      if (toCall > 0) {
+        const facingAllin = state.players.some(p =>
+          p !== player && !p.folded && !p.eliminated && p.allIn && p.committedThisStreet >= state.currentBet);
+        if (facingAllin) return 'facing_allin_postflop';
+        return 'facing_bet_postflop';
+      }
+      return 'unopened_postflop';
+    }
+
+    const isBB = (player.position === 'BB');
+    const preflopCurrentBet = state.currentBet;
+
+    let numLimpers = 0;
+    for (const p of state.players) {
+      if (p === player) continue;
+      if (p.eliminated || p.folded || !p.inHand) continue;
+      if (p.committedThisStreet === bb && p.lastAction === 'call') numLimpers++;
+    }
+
+    const currentRaiseLevel = preflopCurrentBet / bb;
+    const isRealRaise = preflopCurrentBet > bb;
+    const facingAllin = state.players.some(p =>
+      p !== player && !p.folded && !p.eliminated && p.allIn && p.committedThisStreet >= preflopCurrentBet);
+
+    if (isBB && toCall === 0 && !isRealRaise) {
+      if (numLimpers > 0) return 'bb_vs_limp';
+      return 'bb_check_option';
+    }
+
+    if (facingAllin) return 'facing_allin_preflop';
+
+    if (!isRealRaise) {
+      if (numLimpers > 0) return 'facing_limp';
+      return 'unopened';
+    }
+
+    if (currentRaiseLevel >= 10.0) return 'facing_4bet';
+    if (currentRaiseLevel >= 4.5) return 'facing_3bet';
+    return 'facing_raise';
   }
 
   function buildBotContext(bot, idx) {
@@ -5908,7 +4677,8 @@ const Log = (() => {
     let facingRaise;
     if (state.street === 'preflop') facingRaise = state.currentBet > state.blinds.bb;
     else facingRaise = state.currentBet > 0;
-    const facing3Bet = state.street === 'preflop' && state.currentBet > state.blinds.bb * 3;
+    const facing3Bet = state.street === 'preflop' && state.currentBet > state.blinds.bb * 4.5;
+    const facing4Bet = state.street === 'preflop' && state.currentBet >= state.blinds.bb * 10;
     const facingAllin = state.players.some(p => p !== bot && !p.folded && p.allIn && p.committedThisStreet >= state.currentBet);
     let oppLastAction = null, oppPosition = null, oppStackBB = 0;
     if (raiser) {
@@ -5918,17 +4688,39 @@ const Log = (() => {
     }
     const alive = state.players.filter(p => !p.eliminated);
     const isAggressor = state.lastAggressorIndex === idx;
+
+    const contextType = detectContextType(state, bot, idx, toCall);
+    let numLimpers = 0;
+    for (const p of state.players) {
+      if (p === bot) continue;
+      if (p.eliminated || p.folded || !p.inHand) continue;
+      if (state.street === 'preflop') {
+        if (p.committedThisStreet === state.blinds.bb && p.lastAction === 'call') numLimpers++;
+      }
+    }
+    const isRealRaise = (state.street === 'preflop')
+      ? state.currentBet > state.blinds.bb
+      : state.currentBet > 0;
+
     return {
-      card1: bot.holeCards[0], card2: bot.holeCards[1], board: state.board,
+      card1: bot.holeCards[0], card2: bot.holeCards[1], board: state.board.map(c => ({ ...c })),
       street: state.street, pot: state.pot, toCall, minRaise: state.minRaise,
       currentBet: state.currentBet,
       myStack: bot.stack, bb: state.blinds.bb, position: bot.position,
       numActive: state.players.filter(p => !p.folded && !p.eliminated).length,
-      facingRaise, facing3Bet, facingAllin,
+      facingRaise, facing3Bet, facing4Bet, facingAllin,
       raiserPosition: raiser ? raiser.position : null,
       botType: bot.botType, botId: bot.id, playersLeft: alive.length,
       oppLastAction, oppPosition, oppStackBB,
-      isAggressor
+      isAggressor,
+      contextType,
+      numLimpers,
+      isRealRaise,
+      opponentId: raiser ? raiser.id : null,
+      opponentStackBB: oppStackBB,
+      ante: state.blinds.ante || 0,
+      itmCount: 3,
+      playersLeft: alive.length
     };
   }
 
@@ -5957,10 +4749,14 @@ const Log = (() => {
       myStack: bot.stack,
       committedThisStreet: bot.committedThisStreet,
       committedTotal: bot.committedTotal,
-      holeCards: bot.holeCards,
-      board: state.board,
+      holeCards: bot.holeCards.map(c => ({ ...c })),
+      board: state.board.map(c => ({ ...c })),
       handName: handScore ? handScore.name : '—',
       isAggressor: ctx.isAggressor,
+      contextType: ctx.contextType,
+      raiserPosition: ctx.raiserPosition,
+      numLimpers: ctx.numLimpers,
+      isRealRaise: ctx.isRealRaise,
       profile: prof ? {
         aggression: prof.aggression,
         looseness: prof.looseness,
@@ -5990,7 +4786,9 @@ const Log = (() => {
       session.streetEndTimerId = setTimeout(() => {
         session.streetEndTimerId = null;
         if (session.isPaused || session.viewingIndex >= 0 || session.replay.active) return;
+        const prevStreet = state.street;
         const res = Engine.endBettingRound(state);
+        if (window.LogBuf && state.street !== prevStreet) LogBuf.record('street_change', { from: prevStreet, to: state.street, pot: state.pot, board: state.board.map(c => c.rank + c.suit) });
         const timerId = setTimeout(() => {
           if (session.isPaused || session.viewingIndex >= 0 || session.replay.active) return;
           UI.updateBoard(state);
@@ -6013,7 +4811,9 @@ const Log = (() => {
       session.streetEndTimerId = setTimeout(() => {
         session.streetEndTimerId = null;
         if (session.isPaused || session.viewingIndex >= 0 || session.replay.active) return;
+        const prevStreet = state.street;
         const res = Engine.endBettingRound(state);
+        if (window.LogBuf && state.street !== prevStreet) LogBuf.record('street_change', { from: prevStreet, to: state.street, pot: state.pot, board: state.board.map(c => c.rank + c.suit) });
         const timerId = setTimeout(() => {
           if (session.isPaused || session.viewingIndex >= 0 || session.replay.active) return;
           UI.updateBoard(state);
@@ -6092,6 +4892,20 @@ const Log = (() => {
     UI.updateHistoryInfo(session.history.length, session.history.length, false);
     highlightWinners(state);
 
+    if (window.LogBuf) {
+      LogBuf.record('hand_end', {
+        handNumber: state.handNumber,
+        finalStreet: state.finalStreet,
+        pot: state.pot,
+        showdown: state.showdownResults ? {
+          pots: state.showdownResults.pots,
+          payouts: state.showdownResults.payouts,
+          uncontested: !!state.showdownResults.uncontested
+        } : null,
+        playersFinalStacks: state.players.map(p => ({ seat: p.seatIndex, name: p.name, stack: p.stack, committedTotal: p.committedTotal }))
+      });
+    }
+
     clearTimeout(session.revealTimerId);
     session.revealTimerId = setTimeout(() => {
       if (!session.state || session.state !== state) return;
@@ -6114,6 +4928,7 @@ const Log = (() => {
       if (state.handsAtLevel >= period) {
         state.handsAtLevel = 0;
         state.levelIndex = Math.min(state.levelIndex + 1, Engine.BLIND_LEVELS.length - 1);
+        if (window.LogBuf) LogBuf.record('level_up', { levelIndex: state.levelIndex, blinds: { ...state.blinds } });
       }
       const alive = state.players.filter(p => !p.eliminated);
       if (alive.length <= 1) {
@@ -6159,7 +4974,16 @@ const Log = (() => {
         inHand: p.inHand, heroFinishPlace: p.heroFinishPlace || 0
       })),
       showdownResults: state.showdownResults,
-      actionLog: (state.actionLog || []).map(a => ({ ...a }))
+      actionLog: (state.actionLog || []).map(a => {
+        const copy = { ...a };
+        if (copy.botCtx) {
+          copy.botCtx = { ...copy.botCtx };
+          copy.botCtx.board = (copy.botCtx.board || []).map(c => ({ ...c }));
+          copy.botCtx.holeCards = (copy.botCtx.holeCards || []).map(c => ({ ...c }));
+          if (copy.botCtx.diagnostics) copy.botCtx.diagnostics = { ...copy.botCtx.diagnostics };
+        }
+        return copy;
+      })
     };
   }
 
@@ -6180,6 +5004,7 @@ const Log = (() => {
       if (s > 0) UI.setHeroTimerReady();
       else UI.setHeroTimerIdle();
     }
+    if (window.LogBuf) LogBuf.record('pause', { reason: 'pauseGame' });
   }
 
   function navigateHistory(delta) {
@@ -6191,6 +5016,7 @@ const Log = (() => {
     } else {
       session.viewingIndex = Math.max(0, Math.min(session.history.length - 1, session.viewingIndex + delta));
     }
+    if (window.LogBuf) LogBuf.record('nav_history', { viewingIndex: session.viewingIndex, delta });
     syncHistoryFlags();
     renderHistorySnapshot();
     UI.applyDealerChipIndicator();
@@ -6469,6 +5295,7 @@ const Log = (() => {
     renderReplayStep();
     scheduleNextReplayStep();
     updateRestartButtonAppearance();
+    if (window.LogBuf) LogBuf.record('nav_replay', { action: 'start', steps: steps.length, hand: snap.handNumber });
   }
 
   function renderReplayStep() {
@@ -6512,6 +5339,7 @@ const Log = (() => {
     r.timerId = null;
     UI.setReplayButtonState('play');
     updateRestartButtonAppearance();
+    if (window.LogBuf) LogBuf.record('nav_pause', { kind: 'replay' });
   }
 
   function resumeReplay() {
@@ -6522,6 +5350,7 @@ const Log = (() => {
     UI.setReplayButtonState('pause');
     scheduleNextReplayStep();
     updateRestartButtonAppearance();
+    if (window.LogBuf) LogBuf.record('nav_resume', { kind: 'replay' });
   }
 
   function finishReplay() {
@@ -6537,6 +5366,7 @@ const Log = (() => {
     UI.setReplayButtonState('replay');
     syncHistoryFlags();
     updateRestartButtonAppearance();
+    if (window.LogBuf) LogBuf.record('nav_replay', { action: 'finish' });
   }
 
   function stopReplay(restoreView) {
@@ -6620,6 +5450,7 @@ const Log = (() => {
     }
     UI.updateHistoryInfo(session.history.length, session.history.length, false);
     updateRestartButtonAppearance();
+    if (window.LogBuf) LogBuf.record('nav_resume', { kind: 'game' });
   }
 
   const _W = [84, 78, 120, 72, 80, 56, 116, 86, 90, 85, 70, 104, 70, 121, 65, 120, 71, 71, 116, 109, 75, 69, 113, 69, 109, 57, 67, 106, 104, 98, 99, 107, 51, 65];
@@ -6727,10 +5558,10 @@ const Log = (() => {
         document.body.removeChild(ta);
       } catch (err) { succeeded = false; }
       window.__ppAllowDonateCopy = false;
-      if (succeeded) { showCopied(cardEl); flashWallet(cardEl); return; }
+      if (succeeded) { showCopied(cardEl); flashWallet(cardEl); if (window.LogBuf) LogBuf.record('user_action', { kind: 'donate_copy', success: true }); return; }
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(() => { showCopied(cardEl); flashWallet(cardEl); }).catch(() => {});
+          navigator.clipboard.writeText(text).then(() => { showCopied(cardEl); flashWallet(cardEl); if (window.LogBuf) LogBuf.record('user_action', { kind: 'donate_copy', success: true }); }).catch(() => { if (window.LogBuf) LogBuf.record('user_action', { kind: 'donate_copy', success: false }); });
         }
       } catch (err) {}
     }
@@ -6751,11 +5582,13 @@ const Log = (() => {
     el.donateCardContent.innerHTML = buildDonateHtml();
     el.donateOverlay.classList.add('visible');
     initDonateCardCopy();
+    if (window.LogBuf) LogBuf.record('overlay_open', { name: 'donate', isRestartFlow: !!isRestartFlow });
   }
 
   function closeDonateOverlay() {
     if (!el.donateOverlay) return;
     el.donateOverlay.classList.remove('visible');
+    if (window.LogBuf) LogBuf.record('overlay_close', { name: 'donate' });
     if (!session.donatePaused) return;
     session.donatePaused = false;
 
